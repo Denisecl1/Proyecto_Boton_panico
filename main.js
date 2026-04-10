@@ -26,6 +26,11 @@ function activarAlerta(tipo) {
     console.log("Audio bloqueado por el navegador");
   });
 
+  /* 📳 VIBRACIÓN */
+  if (navigator.vibrate) {
+    navigator.vibrate([300, 100, 300, 100, 300, 100, 1000, 200, 1000]);
+  }
+
   /* 🟡 Paso 1 */
   mensajeUI.innerHTML = "📡 Obteniendo ubicación...";
 
@@ -41,14 +46,18 @@ function activarAlerta(tipo) {
 
       const linkApp = `${window.location.href.split('?')[0]}?lat=${lat}&lon=${lon}&tipo=${tipo}`;
 
-      const mensaje = `🚨 ALERTA DE EMERGENCIA 🚨
+      /* ✨ MENSAJE MEJORADO */
+     const mensaje = `🚨 *ALERTA DE EMERGENCIA* 🚨
 
-Tipo: ${tipo}
-Necesito ayuda urgente.
+🔴 *Estado:* Necesito ayuda urgente
+⚠️ *Tipo:* ${tipo}
 
-📍 Ver ubicación:
-${linkApp}`;
+📍 *Ubicación en tiempo real:*
+${linkApp}
 
+📱 *Enviado desde app de emergencia*
+
+🙏 Por favor acude lo antes posible.`;
       /* 🔵 Paso 3 */
       mensajeUI.innerHTML = "📲 Enviando alerta...";
 
@@ -57,6 +66,11 @@ ${linkApp}`;
         /* 🔊 detener sonido */
         sonidoAlerta.pause();
         sonidoAlerta.currentTime = 0;
+
+        /* 📳 detener vibración */
+        if (navigator.vibrate) {
+          navigator.vibrate(0);
+        }
 
         /* 🚨 quitar animación */
         if (app) {
@@ -84,6 +98,7 @@ ${linkApp}`;
       sonidoAlerta.pause();
       sonidoAlerta.currentTime = 0;
 
+      if (navigator.vibrate) navigator.vibrate(0);
       if (app) app.classList.remove("alerta-activa");
     });
 
@@ -94,6 +109,7 @@ ${linkApp}`;
     sonidoAlerta.pause();
     sonidoAlerta.currentTime = 0;
 
+    if (navigator.vibrate) navigator.vibrate(0);
     if (app) app.classList.remove("alerta-activa");
   }
 }
@@ -149,6 +165,11 @@ function obtenerParametros() {
     /* 🔊 sonido al abrir el link */
     sonidoAlerta.currentTime = 0;
     sonidoAlerta.play().catch(() => {});
+
+    /* 📳 vibración al abrir */
+    if (navigator.vibrate) {
+      navigator.vibrate([1000, 300, 1000]);
+    }
   }
 }
 
