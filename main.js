@@ -43,8 +43,9 @@ function activarAlerta(tipo) {
 
       /* 🟢 Paso 2 */
       mensajeUI.innerHTML = "📍 Ubicación encontrada, preparando alerta...";
+const baseURL = "https://denisecl1.github.io/Proyecto_Boton_panico/";
 
-      const linkApp = `${window.location.href.split('?')[0]}?lat=${lat}&lon=${lon}&tipo=${tipo}`;
+const linkApp = `${baseURL}?lat=${lat}&lon=${lon}&tipo=${tipo}`;
 
       /* ✨ MENSAJE MEJORADO */
      const mensaje = `🚨 *ALERTA DE EMERGENCIA* 🚨
