@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>App de Emergencia</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+
+<body>
+
+  <div class="app">
+    
+    <h1>🚨 Botón de Emergencia</h1>
+
+    <div class="botones">
+      <button onclick="activarAlerta('Accidente')">🚑 Accidente</button>
+      <button onclick="activarAlerta('Peligro')">🚨 Peligro</button>
+      <button onclick="activarAlerta('Médica')">❤️ Médica</button>
+      <button onclick="activarAlerta('Otro')">🆘 Otro</button>
+    </div>
+
+    <!-- Mensajes dinámicos -->
+    <p id="mensaje">Presiona un botón en caso de emergencia</p>
+
+    <!-- Mapa -->
+    <div id="map"></div>
+
+  </div>
+
+  <!-- 🔥 IMPORTANTE: primero Leaflet, luego tu JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #0f0f0f;
+  color: white;
+
+  /* 🔥 centrado tipo app */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* 📱 contenedor tipo app */
+.app {
+  width: 350px;
+  height: 600px;
+  background: #1a1a1a;
+  border-radius: 25px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  overflow-y: auto;
+}
+
+/* título */
+h1 {
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+/* 🔴 botones mejorados */
+.botones button {
+  display: block;
+  margin: 10px auto;
+  padding: 15px;
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #ff2e2e;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+/* efecto al presionar */
+.botones button:hover {
+  background: #ff4d4d;
+  transform: scale(1.05);
+}
+
+/* 📍 mapa mejorado */
+#map {
+  height: 200px;
+  width: 100%;
+  margin: 15px 0;
+  border-radius: 15px;
+  background: #ccc;
+}
+
+/* mensaje */
+#mensaje {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* (puedes borrar esto si ya quitaste contactos) */
+input {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #222;
+  margin: 5px auto;
+  padding: 10px;
+  width: 80%;
+  border-radius: 8px;
+}
+
+/*mensaje de alerta*/
+#mensaje {
+  margin-top: 10px;
+  font-size: 14px;
+  background: #222;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/*Animacion de alerta*/
+
+@keyframes alerta {
+  0% { background: #1a1a1a; }
+  50% { background: #5a0000; }
+  100% { background: #1a1a1a; }
+}
+
+.alerta-activa {
+  animation: alerta 0.4s infinite;
+}
